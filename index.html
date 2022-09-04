@@ -7,25 +7,8 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="stylesheet" href="styles.css">
-<script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
-function UserAction() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-         if (this.readyState == 4 && this.status == 200) {
-             console.log(this.responseText);
-$('#div1').val('file: '+ this.responseText);
-
-         }
-    };
-    xhttp.open("GET", "http://localhost:9000/.netlify/functions/index/public/getReccommendedLink", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xhttp.send();
-}
-
-UserAction();
-</script>
 </head>
 <body>
   <div class="body">
@@ -90,5 +73,27 @@ UserAction();
     </div>
   
   </div>
+  
+<script>
+  $('#div1').html('file: ');
+  
+  function UserAction() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+               console.log(this.responseText);
+  $('#div1').val('file2: '+ this.responseText);
+  
+           }
+      };
+   
+      xhttp.open("GET", "http://localhost:9000/.netlify/functions/index/public/getReccommendedLink", true);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+      xhttp.send();
+  }
+  
+  UserAction();
+  </script>
   </body>
 </html>
