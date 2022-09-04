@@ -75,14 +75,13 @@
   </div>
   
 <script>
-  $('#div1').html('file: ');
   
   function UserAction() {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
            if (this.readyState == 4 && this.status == 200) {
                console.log(this.responseText);
-  $('#div1').val('file2: '+ this.responseText);
+  $('#div1').html('file2: '+ this.responseText);
   
            }
       };
