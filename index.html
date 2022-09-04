@@ -75,29 +75,9 @@
   </div>
   
 <script>
-  var link ="";
-  function UserAction() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-           if (this.readyState == 4 && this.status == 200) {
-            link = this.responseText;  
-            console.log(this.responseText);
-            document.getElementById("recommendedVideo").href=link; 
-            
-  // $('#div1').html('file2: '+ this.responseText);
-  
-           }
-      };
-   
-      xhttp.open("GET", "http://localhost:9000/.netlify/functions/index/public/getReccommendedLink", true);
-      xhttp.setRequestHeader("Content-type", "application/json");
-      xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-      xhttp.send();
-  }
- 
-  UserAction();
-
-
+ fetch('./data.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
   </script>
   </body>
 </html>
