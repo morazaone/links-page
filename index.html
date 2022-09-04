@@ -75,9 +75,13 @@
   </div>
   
 <script>
- fetch('./data.json')
+ 
+  fetch('./data.json')
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((json) => {
+      document.getElementById("recommendedVideo").href=json.videolink; 
+      console.log(json)
+    });
   </script>
   </body>
 </html>
